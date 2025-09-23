@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class ClosestPairTest {
 
-    // Тест для небольшого массива
+   
     @Test
     public void testSmallArray() {
         Point[] points = {
@@ -17,10 +17,10 @@ public class ClosestPairTest {
         };
 
         double result = ClosestPair.findClosestPair(points);
-        assertEquals(Math.sqrt(2), result, 1e-6); // ближайшие (2,3) и (3,4)
+        assertEquals(Math.sqrt(2), result, 1e-6); 
     }
 
-    // Сравнение с O(n^2) алгоритмом для проверки
+    
     @Test
     public void testCompareWithBruteForce() {
         Random rand = new Random(42);
@@ -37,7 +37,7 @@ public class ClosestPairTest {
         }
     }
 
-    // Простой O(n^2) алгоритм для проверки
+    
     private double bruteForce(Point[] points) {
         double min = Double.MAX_VALUE;
         for (int i = 0; i < points.length; i++) {
@@ -48,3 +48,4 @@ public class ClosestPairTest {
         return min;
     }
 }
+
