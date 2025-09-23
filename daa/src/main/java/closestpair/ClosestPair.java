@@ -4,7 +4,7 @@ import java.util.*;
 
 public class ClosestPair {
 
-    // Главный метод: найти минимальное расстояние
+    
     public static double findClosestPair(Point[] points) {
         Point[] pointsByX = points.clone();
         Arrays.sort(pointsByX, Comparator.comparingDouble(p -> p.x));
@@ -15,7 +15,7 @@ public class ClosestPair {
         return closestPair(pointsByX, pointsByY, points.length);
     }
 
-    // Рекурсивное деление
+    
     private static double closestPair(Point[] pointsByX, Point[] pointsByY, int n) {
         if (n <= 3) {
             return bruteForce(pointsByX, n);
@@ -39,7 +39,7 @@ public class ClosestPair {
 
         double d = Math.min(dl, dr);
 
-        // Проверяем "strip"
+        
         List<Point> strip = new ArrayList<>();
         for (Point p : pointsByY) {
             if (Math.abs(p.x - midPoint.x) < d) {
@@ -50,7 +50,7 @@ public class ClosestPair {
         return Math.min(d, stripClosest(strip, d));
     }
 
-    // Проверка расстояний в полосе
+    
     private static double stripClosest(List<Point> strip, double d) {
         double min = d;
         for (int i = 0; i < strip.size(); i++) {
@@ -61,7 +61,7 @@ public class ClosestPair {
         return min;
     }
 
-    // Brute force для маленьких массивов
+    
     private static double bruteForce(Point[] points, int n) {
         double min = Double.MAX_VALUE;
         for (int i = 0; i < n; i++) {
@@ -72,8 +72,9 @@ public class ClosestPair {
         return min;
     }
 
-    // Евклидово расстояние
+    
     private static double distance(Point a, Point b) {
         return Math.hypot(a.x - b.x, a.y - b.y);
     }
 }
+
