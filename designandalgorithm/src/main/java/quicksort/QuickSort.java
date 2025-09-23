@@ -12,14 +12,14 @@ public class QuickSort {
 
     private static void quickSort(int[] arr, int low, int high) {
         while (low < high) {
-            // выбираем случайный pivot
+            
             int pivotIndex = low + rand.nextInt(high - low + 1);
             int pivot = arr[pivotIndex];
             swap(arr, pivotIndex, high);
 
             int partitionIndex = partition(arr, low, high, pivot);
 
-            // рекурсивно вызываем меньшую часть
+            
             if (partitionIndex - low < high - partitionIndex) {
                 quickSort(arr, low, partitionIndex - 1);
                 low = partitionIndex + 1;
@@ -48,7 +48,7 @@ public class QuickSort {
         arr[j] = tmp;
     }
 
-    // Для проверки руками
+    
     public static void main(String[] args) {
         int[] arr = {10, 7, 8, 9, 1, 5};
         quickSort(arr);
@@ -58,3 +58,4 @@ public class QuickSort {
         }
     }
 }
+
